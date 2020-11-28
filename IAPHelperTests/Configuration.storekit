@@ -1,0 +1,116 @@
+{
+  "products" : [
+    {
+      "displayPrice" : "1.99",
+      "familyShareable" : false,
+      "internalID" : "48594F7A",
+      "localizations" : [
+        {
+          "description" : "A lovely large bunch of mixed flowers",
+          "displayName" : "Flowers Large",
+          "locale" : "en_US"
+        },
+        {
+          "description" : "A lovely large bunch of mixed flowers",
+          "displayName" : "Flowers Large",
+          "locale" : "en_GB"
+        }
+      ],
+      "productID" : "com.rarcher.flowers-large",
+      "referenceName" : "flowers-large",
+      "type" : "NonConsumable"
+    },
+    {
+      "displayPrice" : "0.99",
+      "familyShareable" : false,
+      "internalID" : "FB9E68BF",
+      "localizations" : [
+        {
+          "description" : "A lovely small bunch of flowers",
+          "displayName" : "Flowers Small",
+          "locale" : "en_US"
+        },
+        {
+          "description" : "A lovely small bunch of flowers",
+          "displayName" : "Flowers Small",
+          "locale" : "en_GB"
+        }
+      ],
+      "productID" : "com.rarcher.flowers-small",
+      "referenceName" : "flowers-small",
+      "type" : "NonConsumable"
+    },
+    {
+      "displayPrice" : "2.99",
+      "familyShareable" : false,
+      "internalID" : "D0A0F198",
+      "localizations" : [
+        {
+          "description" : "A large bunch of red roses",
+          "displayName" : "Roses Large",
+          "locale" : "en_US"
+        },
+        {
+          "description" : "A large bunch of red roses",
+          "displayName" : "Roses Large",
+          "locale" : "en_GB"
+        }
+      ],
+      "productID" : "com.rarcher.roses-large",
+      "referenceName" : "roses-large",
+      "type" : "NonConsumable"
+    },
+    {
+      "displayPrice" : "3.99",
+      "familyShareable" : false,
+      "internalID" : "6AE20A0C",
+      "localizations" : [
+        {
+          "description" : "A small box of chocolates",
+          "displayName" : "Chocolates Small",
+          "locale" : "en_US"
+        },
+        {
+          "description" : "A small box of chocolates",
+          "displayName" : "Chocolates Small",
+          "locale" : "en_GB"
+        }
+      ],
+      "productID" : "com.rarcher.chocolates.small",
+      "referenceName" : "chocolates-small",
+      "type" : "NonConsumable"
+    },
+    {
+      "displayPrice" : "0.99",
+      "familyShareable" : false,
+      "internalID" : "E5313242",
+      "localizations" : [
+        {
+          "description" : "A small birthday card with message",
+          "displayName" : "Birthday Card",
+          "locale" : "en_US"
+        },
+        {
+          "description" : "A small birthday card with message",
+          "displayName" : "Birthday Card",
+          "locale" : "en_GB"
+        }
+      ],
+      "productID" : "com.rarcher.birthday.card",
+      "referenceName" : "birthday-card",
+      "type" : "Consumable"
+    }
+  ],
+  "settings" : {
+    "_askToBuyEnabled" : false,
+    "_failTransactionsEnabled" : false,
+    "_storeKitError" : 0
+  },
+  "subscriptionGroups" : [
+
+  ],
+  "version" : {
+    "major" : 1,
+    "minor" : 0
+  }
+}

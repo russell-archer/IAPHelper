@@ -31,6 +31,10 @@
 		6874E67E2572C574006CA636 /* img4.png in Resources */ = {isa = PBXBuildFile; fileRef = 6874E6662572C574006CA636 /* img4.png */; };
 		6874E67F2572C574006CA636 /* img16.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6874E6672572C574006CA636 /* img16.jpg */; };
 		6874E6802572C574006CA636 /* img2.png in Resources */ = {isa = PBXBuildFile; fileRef = 6874E6682572C574006CA636 /* img2.png */; };
+		6874E68A2572D59A006CA636 /* IAPHelperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6874E6892572D59A006CA636 /* IAPHelperTests.swift */; };
+		6874E68C2572D59A006CA636 /* IAPHelper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 68B486D22571DA3F00770C1F /* IAPHelper.framework */; };
+		6874E6962572D77F006CA636 /* Configuration.storekit in Resources */ = {isa = PBXBuildFile; fileRef = 6874E6942572D77F006CA636 /* Configuration.storekit */; };
+		6874E6972572D77F006CA636 /* ProductsRelease.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6874E6952572D77F006CA636 /* ProductsRelease.plist */; };
 		68B486D72571DA3F00770C1F /* IAPHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = 68B486D52571DA3F00770C1F /* IAPHelper.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		68B4874A2571DBC600770C1F /* kdf.h in Headers */ = {isa = PBXBuildFile; fileRef = 68B486E02571DBC400770C1F /* kdf.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		68B4874B2571DBC600770C1F /* tls1.h in Headers */ = {isa = PBXBuildFile; fileRef = 68B486E12571DBC400770C1F /* tls1.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -165,6 +169,16 @@
 		68B487E72571DC8600770C1F /* AppleIncRootCertificate.cer in Resources */ = {isa = PBXBuildFile; fileRef = 68B487CF2571DC8600770C1F /* AppleIncRootCertificate.cer */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		6874E68D2572D59A006CA636 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 68B486C92571DA3F00770C1F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 68B486D12571DA3F00770C1F;
+			remoteInfo = IAPHelper;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		6874E64F2572C431006CA636 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		6874E6512572C573006CA636 /* wwdc-2020-100835422-large.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "wwdc-2020-100835422-large.jpg"; sourceTree = "<group>"; };
@@ -191,6 +205,11 @@
 		6874E6662572C574006CA636 /* img4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = img4.png; sourceTree = "<group>"; };
 		6874E6672572C574006CA636 /* img16.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = img16.jpg; sourceTree = "<group>"; };
 		6874E6682572C574006CA636 /* img2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = img2.png; sourceTree = "<group>"; };
+		6874E6872572D59A006CA636 /* IAPHelperTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = IAPHelperTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		6874E6892572D59A006CA636 /* IAPHelperTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IAPHelperTests.swift; sourceTree = "<group>"; };
+		6874E68B2572D59A006CA636 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6874E6942572D77F006CA636 /* Configuration.storekit */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Configuration.storekit; sourceTree = "<group>"; };
+		6874E6952572D77F006CA636 /* ProductsRelease.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ProductsRelease.plist; sourceTree = "<group>"; };
 		68B486D22571DA3F00770C1F /* IAPHelper.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = IAPHelper.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		68B486D52571DA3F00770C1F /* IAPHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IAPHelper.h; sourceTree = "<group>"; };
 		68B486D62571DA3F00770C1F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -328,6 +347,14 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		6874E6842572D59A006CA636 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6874E68C2572D59A006CA636 /* IAPHelper.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		68B486CF2571DA3F00770C1F /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -371,12 +398,24 @@
 			path = "readme-assets";
 			sourceTree = "<group>";
 		};
+		6874E6882572D59A006CA636 /* IAPHelperTests */ = {
+			isa = PBXGroup;
+			children = (
+				6874E68B2572D59A006CA636 /* Info.plist */,
+				6874E6952572D77F006CA636 /* ProductsRelease.plist */,
+				6874E6942572D77F006CA636 /* Configuration.storekit */,
+				6874E6892572D59A006CA636 /* IAPHelperTests.swift */,
+			);
+			path = IAPHelperTests;
+			sourceTree = "<group>";
+		};
 		68B486C82571DA3F00770C1F = {
 			isa = PBXGroup;
 			children = (
 				6874E64F2572C431006CA636 /* README.md */,
 				6874E6502572C4A7006CA636 /* readme-assets */,
 				68B486D42571DA3F00770C1F /* IAPHelper */,
+				6874E6882572D59A006CA636 /* IAPHelperTests */,
 				68B486D32571DA3F00770C1F /* Products */,
 			);
 			sourceTree = "<group>";
@@ -385,6 +424,7 @@
 			isa = PBXGroup;
 			children = (
 				68B486D22571DA3F00770C1F /* IAPHelper.framework */,
+				6874E6872572D59A006CA636 /* IAPHelperTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -665,6 +705,24 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		6874E6862572D59A006CA636 /* IAPHelperTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6874E6912572D59A006CA636 /* Build configuration list for PBXNativeTarget "IAPHelperTests" */;
+			buildPhases = (
+				6874E6832572D59A006CA636 /* Sources */,
+				6874E6842572D59A006CA636 /* Frameworks */,
+				6874E6852572D59A006CA636 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				6874E68E2572D59A006CA636 /* PBXTargetDependency */,
+			);
+			name = IAPHelperTests;
+			productName = IAPHelperTests;
+			productReference = 6874E6872572D59A006CA636 /* IAPHelperTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		68B486D12571DA3F00770C1F /* IAPHelper */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 68B486DA2571DA3F00770C1F /* Build configuration list for PBXNativeTarget "IAPHelper" */;
@@ -689,8 +747,12 @@
 		68B486C92571DA3F00770C1F /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 1220;
 				LastUpgradeCheck = 1220;
 				TargetAttributes = {
+					6874E6862572D59A006CA636 = {
+						CreatedOnToolsVersion = 12.2;
+					};
 					68B486D12571DA3F00770C1F = {
 						CreatedOnToolsVersion = 12.2;
 						LastSwiftMigration = 1220;
@@ -711,11 +773,21 @@
 			projectRoot = "";
 			targets = (
 				68B486D12571DA3F00770C1F /* IAPHelper */,
+				6874E6862572D59A006CA636 /* IAPHelperTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		6874E6852572D59A006CA636 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6874E6972572D77F006CA636 /* ProductsRelease.plist in Resources */,
+				6874E6962572D77F006CA636 /* Configuration.storekit in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		68B486D02571DA3F00770C1F /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -752,6 +824,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		6874E6832572D59A006CA636 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6874E68A2572D59A006CA636 /* IAPHelperTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		68B486CE2571DA3F00770C1F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -782,7 +862,51 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		6874E68E2572D59A006CA636 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 68B486D12571DA3F00770C1F /* IAPHelper */;
+			targetProxy = 6874E68D2572D59A006CA636 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
+		6874E68F2572D59A006CA636 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = R6BE99W3FU;
+				INFOPLIST_FILE = IAPHelperTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.rarcher.IAPHelperTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		6874E6902572D59A006CA636 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = R6BE99W3FU;
+				INFOPLIST_FILE = IAPHelperTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.rarcher.IAPHelperTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		68B486D82571DA3F00770C1F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -975,6 +1099,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		6874E6912572D59A006CA636 /* Build configuration list for PBXNativeTarget "IAPHelperTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6874E68F2572D59A006CA636 /* Debug */,
+				6874E6902572D59A006CA636 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		68B486CC2571DA3F00770C1F /* Build configuration list for PBXProject "IAPHelper" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
