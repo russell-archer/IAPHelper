@@ -6,6 +6,8 @@ However, you do so entirely at your own risk.
 
 ## See **IAPDemo** on [GitHub](https://github.com/russell-archer/IAPDemo) for an example of how to use `IAPHelper`.
 
+---
+
 # In-App Purchases with Xcode 12 and iOS 14
 
 References: 
