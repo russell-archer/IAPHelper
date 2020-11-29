@@ -162,7 +162,7 @@ public class IAPHelper: NSObject  {
     ///     - on app start-up
     ///     - when a purchase succeeds (the new receipt is available when paymentQueue(_:updatedTransactions:) is called by StoreKit)
     ///     - when purchases are restored
-    public func processReceipt() {
+    public func processReceipt() -> Bool {
         IAPLog.event(.receiptValidationStarted)
         
         receipt = IAPReceipt()
@@ -178,7 +178,7 @@ public class IAPHelper: NSObject  {
               receipt.validate() else {
 
             IAPLog.event(.receiptProcessingFailure)
-            return
+            return false
         }
 
         // Compare the "fallback" set of purchased product ids that are stored in UserDefaults with the validated
@@ -186,6 +186,7 @@ public class IAPHelper: NSObject  {
         // set to match the receipt and persist the new set to UserDefaults.
         createValidatedPurchasedProductIds(receipt: receipt)
         IAPLog.event(.receiptProcessingSuccess)
+        return true
     }
 
     /// Register a completion block to receive general notifications for app store operations.

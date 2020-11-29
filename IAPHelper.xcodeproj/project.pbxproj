@@ -7,6 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		684B21B52573CDDA00E635FC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 684B21B42573CDDA00E635FC /* AppDelegate.swift */; };
+		684B21B72573CDDA00E635FC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 684B21B62573CDDA00E635FC /* SceneDelegate.swift */; };
+		684B21B92573CDDA00E635FC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 684B21B82573CDDA00E635FC /* ViewController.swift */; };
+		684B21BE2573CDDB00E635FC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 684B21BD2573CDDB00E635FC /* Assets.xcassets */; };
+		684B21C12573CDDB00E635FC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 684B21BF2573CDDB00E635FC /* LaunchScreen.storyboard */; };
+		684B21D12573CFCB00E635FC /* Configuration.storekit in Resources */ = {isa = PBXBuildFile; fileRef = 684B21CE2573CFCB00E635FC /* Configuration.storekit */; };
+		684B21D22573CFCB00E635FC /* StoreKitTestCertificate.cer in Resources */ = {isa = PBXBuildFile; fileRef = 684B21CF2573CFCB00E635FC /* StoreKitTestCertificate.cer */; };
+		684B21D32573CFCB00E635FC /* AppleIncRootCertificate.cer in Resources */ = {isa = PBXBuildFile; fileRef = 684B21D02573CFCB00E635FC /* AppleIncRootCertificate.cer */; };
+		684B21D82573CFD700E635FC /* ProductsRelease.plist in Resources */ = {isa = PBXBuildFile; fileRef = 684B21D72573CFD700E635FC /* ProductsRelease.plist */; };
+		684B21E02573D1BC00E635FC /* IAPHelper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 68B486D22571DA3F00770C1F /* IAPHelper.framework */; };
+		684B21E12573D1BC00E635FC /* IAPHelper.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 68B486D22571DA3F00770C1F /* IAPHelper.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		6874E6692572C574006CA636 /* wwdc-2020-100835422-large.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6874E6512572C573006CA636 /* wwdc-2020-100835422-large.jpg */; };
 		6874E66A2572C574006CA636 /* img6.png in Resources */ = {isa = PBXBuildFile; fileRef = 6874E6522572C573006CA636 /* img6.png */; };
 		6874E66B2572C574006CA636 /* img15.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6874E6532572C573006CA636 /* img15.jpg */; };
@@ -33,8 +44,6 @@
 		6874E6802572C574006CA636 /* img2.png in Resources */ = {isa = PBXBuildFile; fileRef = 6874E6682572C574006CA636 /* img2.png */; };
 		6874E68A2572D59A006CA636 /* IAPHelperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6874E6892572D59A006CA636 /* IAPHelperTests.swift */; };
 		6874E68C2572D59A006CA636 /* IAPHelper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 68B486D22571DA3F00770C1F /* IAPHelper.framework */; };
-		6874E6962572D77F006CA636 /* Configuration.storekit in Resources */ = {isa = PBXBuildFile; fileRef = 6874E6942572D77F006CA636 /* Configuration.storekit */; };
-		6874E6972572D77F006CA636 /* ProductsRelease.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6874E6952572D77F006CA636 /* ProductsRelease.plist */; };
 		68B486D72571DA3F00770C1F /* IAPHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = 68B486D52571DA3F00770C1F /* IAPHelper.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		68B4874A2571DBC600770C1F /* kdf.h in Headers */ = {isa = PBXBuildFile; fileRef = 68B486E02571DBC400770C1F /* kdf.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		68B4874B2571DBC600770C1F /* tls1.h in Headers */ = {isa = PBXBuildFile; fileRef = 68B486E12571DBC400770C1F /* tls1.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -170,6 +179,20 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		684B21E22573D1BC00E635FC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 68B486C92571DA3F00770C1F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 68B486D12571DA3F00770C1F;
+			remoteInfo = IAPHelper;
+		};
+		684B21E72573D24800E635FC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 68B486C92571DA3F00770C1F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 684B21B12573CDDA00E635FC;
+			remoteInfo = IAPHelperTestHost;
+		};
 		6874E68D2572D59A006CA636 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 68B486C92571DA3F00770C1F /* Project object */;
@@ -179,7 +202,32 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		684B21E42573D1BC00E635FC /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				684B21E12573D1BC00E635FC /* IAPHelper.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		684B21B22573CDDA00E635FC /* IAPHelperTestHost.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IAPHelperTestHost.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		684B21B42573CDDA00E635FC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		684B21B62573CDDA00E635FC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		684B21B82573CDDA00E635FC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		684B21BD2573CDDB00E635FC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		684B21C02573CDDB00E635FC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		684B21C22573CDDB00E635FC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		684B21CE2573CFCB00E635FC /* Configuration.storekit */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Configuration.storekit; sourceTree = "<group>"; };
+		684B21CF2573CFCB00E635FC /* StoreKitTestCertificate.cer */ = {isa = PBXFileReference; lastKnownFileType = file; path = StoreKitTestCertificate.cer; sourceTree = "<group>"; };
+		684B21D02573CFCB00E635FC /* AppleIncRootCertificate.cer */ = {isa = PBXFileReference; lastKnownFileType = file; path = AppleIncRootCertificate.cer; sourceTree = "<group>"; };
+		684B21D72573CFD700E635FC /* ProductsRelease.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ProductsRelease.plist; sourceTree = "<group>"; };
 		6874E64F2572C431006CA636 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		6874E6512572C573006CA636 /* wwdc-2020-100835422-large.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "wwdc-2020-100835422-large.jpg"; sourceTree = "<group>"; };
 		6874E6522572C573006CA636 /* img6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = img6.png; sourceTree = "<group>"; };
@@ -208,8 +256,6 @@
 		6874E6872572D59A006CA636 /* IAPHelperTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = IAPHelperTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6874E6892572D59A006CA636 /* IAPHelperTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IAPHelperTests.swift; sourceTree = "<group>"; };
 		6874E68B2572D59A006CA636 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		6874E6942572D77F006CA636 /* Configuration.storekit */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Configuration.storekit; sourceTree = "<group>"; };
-		6874E6952572D77F006CA636 /* ProductsRelease.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ProductsRelease.plist; sourceTree = "<group>"; };
 		68B486D22571DA3F00770C1F /* IAPHelper.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = IAPHelper.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		68B486D52571DA3F00770C1F /* IAPHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IAPHelper.h; sourceTree = "<group>"; };
 		68B486D62571DA3F00770C1F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -347,6 +393,14 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		684B21AF2573CDDA00E635FC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				684B21E02573D1BC00E635FC /* IAPHelper.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		6874E6842572D59A006CA636 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -367,6 +421,30 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		684B21B32573CDDA00E635FC /* IAPHelperTestHost */ = {
+			isa = PBXGroup;
+			children = (
+				684B21D02573CFCB00E635FC /* AppleIncRootCertificate.cer */,
+				684B21CE2573CFCB00E635FC /* Configuration.storekit */,
+				684B21CF2573CFCB00E635FC /* StoreKitTestCertificate.cer */,
+				684B21B42573CDDA00E635FC /* AppDelegate.swift */,
+				684B21D72573CFD700E635FC /* ProductsRelease.plist */,
+				684B21B62573CDDA00E635FC /* SceneDelegate.swift */,
+				684B21B82573CDDA00E635FC /* ViewController.swift */,
+				684B21BD2573CDDB00E635FC /* Assets.xcassets */,
+				684B21BF2573CDDB00E635FC /* LaunchScreen.storyboard */,
+				684B21C22573CDDB00E635FC /* Info.plist */,
+			);
+			path = IAPHelperTestHost;
+			sourceTree = "<group>";
+		};
+		684B21DF2573D1BC00E635FC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		6874E6502572C4A7006CA636 /* readme-assets */ = {
 			isa = PBXGroup;
 			children = (
@@ -402,8 +480,6 @@
 			isa = PBXGroup;
 			children = (
 				6874E68B2572D59A006CA636 /* Info.plist */,
-				6874E6952572D77F006CA636 /* ProductsRelease.plist */,
-				6874E6942572D77F006CA636 /* Configuration.storekit */,
 				6874E6892572D59A006CA636 /* IAPHelperTests.swift */,
 			);
 			path = IAPHelperTests;
@@ -416,7 +492,9 @@
 				6874E6502572C4A7006CA636 /* readme-assets */,
 				68B486D42571DA3F00770C1F /* IAPHelper */,
 				6874E6882572D59A006CA636 /* IAPHelperTests */,
+				684B21B32573CDDA00E635FC /* IAPHelperTestHost */,
 				68B486D32571DA3F00770C1F /* Products */,
+				684B21DF2573D1BC00E635FC /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -425,6 +503,7 @@
 			children = (
 				68B486D22571DA3F00770C1F /* IAPHelper.framework */,
 				6874E6872572D59A006CA636 /* IAPHelperTests.xctest */,
+				684B21B22573CDDA00E635FC /* IAPHelperTestHost.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -705,6 +784,25 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		684B21B12573CDDA00E635FC /* IAPHelperTestHost */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 684B21C32573CDDB00E635FC /* Build configuration list for PBXNativeTarget "IAPHelperTestHost" */;
+			buildPhases = (
+				684B21AE2573CDDA00E635FC /* Sources */,
+				684B21AF2573CDDA00E635FC /* Frameworks */,
+				684B21B02573CDDA00E635FC /* Resources */,
+				684B21E42573D1BC00E635FC /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				684B21E32573D1BC00E635FC /* PBXTargetDependency */,
+			);
+			name = IAPHelperTestHost;
+			productName = IAPHelperTestHost;
+			productReference = 684B21B22573CDDA00E635FC /* IAPHelperTestHost.app */;
+			productType = "com.apple.product-type.application";
+		};
 		6874E6862572D59A006CA636 /* IAPHelperTests */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6874E6912572D59A006CA636 /* Build configuration list for PBXNativeTarget "IAPHelperTests" */;
@@ -717,6 +815,7 @@
 			);
 			dependencies = (
 				6874E68E2572D59A006CA636 /* PBXTargetDependency */,
+				684B21E82573D24800E635FC /* PBXTargetDependency */,
 			);
 			name = IAPHelperTests;
 			productName = IAPHelperTests;
@@ -750,8 +849,12 @@
 				LastSwiftUpdateCheck = 1220;
 				LastUpgradeCheck = 1220;
 				TargetAttributes = {
+					684B21B12573CDDA00E635FC = {
+						CreatedOnToolsVersion = 12.2;
+					};
 					6874E6862572D59A006CA636 = {
 						CreatedOnToolsVersion = 12.2;
+						TestTargetID = 684B21B12573CDDA00E635FC;
 					};
 					68B486D12571DA3F00770C1F = {
 						CreatedOnToolsVersion = 12.2;
@@ -774,17 +877,29 @@
 			targets = (
 				68B486D12571DA3F00770C1F /* IAPHelper */,
 				6874E6862572D59A006CA636 /* IAPHelperTests */,
+				684B21B12573CDDA00E635FC /* IAPHelperTestHost */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		684B21B02573CDDA00E635FC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				684B21C12573CDDB00E635FC /* LaunchScreen.storyboard in Resources */,
+				684B21D12573CFCB00E635FC /* Configuration.storekit in Resources */,
+				684B21D82573CFD700E635FC /* ProductsRelease.plist in Resources */,
+				684B21BE2573CDDB00E635FC /* Assets.xcassets in Resources */,
+				684B21D32573CFCB00E635FC /* AppleIncRootCertificate.cer in Resources */,
+				684B21D22573CFCB00E635FC /* StoreKitTestCertificate.cer in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		6874E6852572D59A006CA636 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6874E6972572D77F006CA636 /* ProductsRelease.plist in Resources */,
-				6874E6962572D77F006CA636 /* Configuration.storekit in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -824,6 +939,16 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		684B21AE2573CDDA00E635FC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				684B21B92573CDDA00E635FC /* ViewController.swift in Sources */,
+				684B21B52573CDDA00E635FC /* AppDelegate.swift in Sources */,
+				684B21B72573CDDA00E635FC /* SceneDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		6874E6832572D59A006CA636 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -863,6 +988,16 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		684B21E32573D1BC00E635FC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 68B486D12571DA3F00770C1F /* IAPHelper */;
+			targetProxy = 684B21E22573D1BC00E635FC /* PBXContainerItemProxy */;
+		};
+		684B21E82573D24800E635FC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 684B21B12573CDDA00E635FC /* IAPHelperTestHost */;
+			targetProxy = 684B21E72573D24800E635FC /* PBXContainerItemProxy */;
+		};
 		6874E68E2572D59A006CA636 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 68B486D12571DA3F00770C1F /* IAPHelper */;
@@ -870,28 +1005,60 @@
 		};
 /* End PBXTargetDependency section */
 
+/* Begin PBXVariantGroup section */
+		684B21BF2573CDDB00E635FC /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				684B21C02573CDDB00E635FC /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
 /* Begin XCBuildConfiguration section */
-		6874E68F2572D59A006CA636 /* Debug */ = {
+		684B21C42573CDDB00E635FC /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = R6BE99W3FU;
-				INFOPLIST_FILE = IAPHelperTests/Info.plist;
+				INFOPLIST_FILE = IAPHelperTestHost/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.rarcher.IAPHelperTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.rarcher.IAPHelperTestHost;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
-		6874E6902572D59A006CA636 /* Release */ = {
+		684B21C52573CDDB00E635FC /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = R6BE99W3FU;
+				INFOPLIST_FILE = IAPHelperTestHost/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.rarcher.IAPHelperTestHost;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		6874E68F2572D59A006CA636 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = R6BE99W3FU;
 				INFOPLIST_FILE = IAPHelperTests/Info.plist;
@@ -904,6 +1071,27 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/IAPHelperTestHost.app/IAPHelperTestHost";
+			};
+			name = Debug;
+		};
+		6874E6902572D59A006CA636 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = R6BE99W3FU;
+				INFOPLIST_FILE = IAPHelperTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.rarcher.IAPHelperTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/IAPHelperTestHost.app/IAPHelperTestHost";
 			};
 			name = Release;
 		};
@@ -1099,6 +1287,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		684B21C32573CDDB00E635FC /* Build configuration list for PBXNativeTarget "IAPHelperTestHost" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				684B21C42573CDDB00E635FC /* Debug */,
+				684B21C52573CDDB00E635FC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		6874E6912572D59A006CA636 /* Build configuration list for PBXNativeTarget "IAPHelperTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

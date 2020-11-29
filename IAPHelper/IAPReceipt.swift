@@ -56,17 +56,8 @@ public class IAPReceipt {
         return true
     }
     
-    /// True if the receipt has been loaded and its data cached.
-    public var isLoaded: Bool { receiptData == nil ? false : true }
-    
     /// True if valid. If false then the host app should call refreshReceipt(completion:).
     public var isValid = false
-    
-    /// True if the receipt has been signed with a valid Apple X509 certificate.
-    public var isValidSignature = false
-    
-    /// True if the receipt has been read and its metadata cached.
-    public var hasBeenRead = false
     
     // MARK:- Private properties
 

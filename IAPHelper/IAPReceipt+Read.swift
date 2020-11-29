@@ -83,9 +83,7 @@ extension IAPReceipt {
             pointer = pointer!.advanced(by: length)
         }
         
-        hasBeenRead = true
         IAPLog.event(.receiptReadSuccess)
-        
         return true
     }
 }

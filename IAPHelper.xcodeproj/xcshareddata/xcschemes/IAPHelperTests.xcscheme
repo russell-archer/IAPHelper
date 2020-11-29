@@ -39,7 +39,7 @@
          referenceType = "1">
       </LocationScenarioReference>
       <StoreKitConfigurationFileReference
-         identifier = "../../IAPHelperTests/Configuration.storekit">
+         identifier = "../IAPDemo/Support/Configuration.storekit">
       </StoreKitConfigurationFileReference>
    </LaunchAction>
    <ProfileAction

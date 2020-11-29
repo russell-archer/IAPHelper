@@ -53,7 +53,6 @@ extension IAPReceipt {
             return false
         }
         
-        isValidSignature = true
         IAPLog.event(.receiptValidateSigningSuccess)
         return true
     }

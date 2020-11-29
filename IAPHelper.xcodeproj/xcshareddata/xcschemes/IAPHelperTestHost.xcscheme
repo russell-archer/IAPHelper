@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "68B486D12571DA3F00770C1F"
-               BuildableName = "IAPHelper.framework"
-               BlueprintName = "IAPHelper"
+               BlueprintIdentifier = "684B21B12573CDDA00E635FC"
+               BuildableName = "IAPHelperTestHost.app"
+               BlueprintName = "IAPHelperTestHost"
                ReferencedContainer = "container:IAPHelper.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -40,6 +40,16 @@
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES">
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "684B21B12573CDDA00E635FC"
+            BuildableName = "IAPHelperTestHost.app"
+            BlueprintName = "IAPHelperTestHost"
+            ReferencedContainer = "container:IAPHelper.xcodeproj">
+         </BuildableReference>
+      </BuildableProductRunnable>
       <StoreKitConfigurationFileReference
          identifier = "../IAPDemo/Support/Configuration.storekit">
       </StoreKitConfigurationFileReference>
@@ -50,15 +60,16 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
-      <MacroExpansion>
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "68B486D12571DA3F00770C1F"
-            BuildableName = "IAPHelper.framework"
-            BlueprintName = "IAPHelper"
+            BlueprintIdentifier = "684B21B12573CDDA00E635FC"
+            BuildableName = "IAPHelperTestHost.app"
+            BlueprintName = "IAPHelperTestHost"
             ReferencedContainer = "container:IAPHelper.xcodeproj">
          </BuildableReference>
-      </MacroExpansion>
+      </BuildableProductRunnable>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">
