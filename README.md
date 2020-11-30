@@ -60,6 +60,12 @@ References:
     * [Loading the Receipt](#Loading-the-Receipt) 
     * [Reading In-App Purchase Records](#Reading-In-App-Purchase-Records)
     * [Validating the Receipt](#Validating-the-Receipt)
+* [StoreKit Automated Testing](#StoreKit-Automated-Testing)
+    * [Overview](#Overview)
+    * [What is a Workspace?](#What-is-a-Workspace?)
+    * [Create the IAPHelper Framework](#Create-the-IAPHelper-Framework)
+    * [Combine the IAPDemo project and the IAPHelper framework in a Workspace](#Combine-the-IAPDemo-project-and-the-IAPHelper-framework-in-a-Workspace)
+    * [Add Unit Tests for IAPHelper to the framework](#Add-Unit-Tests-for-IAPHelper-to-the-framework)
 * [Future Enhancements](#Future-Enhancements)
 
 ---
