@@ -14,6 +14,9 @@ import StoreKitTest
 
 class IAPHelperTests: XCTestCase {
     private var iap = IAPHelper.shared
+    
+    // Create a test session that allows us to control StoreKit transactions
+    // (e.g. disable the normal purchase confirmation dialogs, etc.)
     private var session: SKTestSession! = try? SKTestSession(configurationFileNamed: IAPConstants.ConfigFile())
     
     func testConfiguration() {
@@ -24,22 +27,22 @@ class IAPHelperTests: XCTestCase {
     func testGetProductInfo() {
         // Create an expected outcome for an *asynchronous* test
         let productInfoExpectation = XCTestExpectation()
-        
+
         iap.requestProductsFromAppStore { notification in
-            
+
             if notification == IAPNotification.requestProductsSuccess {
                 XCTAssertNotNil(self.iap.products)
             } else if notification == IAPNotification.requestProductsFailure {
                 XCTFail()
             }
-            
+
             productInfoExpectation.fulfill()
         }
-        
+
         // Signal that we want to wait on one or more expectations for up to the specified timeout
         wait(for: [productInfoExpectation], timeout: 10.0)  // Wait up to 10 secs for the expectation to be fulfilled
     }
-    
+
     func testPurchaseProduct() {
         let productId = "com.rarcher.flowers-large"
         let purchaseProductExpectation = XCTestExpectation()
@@ -49,21 +52,21 @@ class IAPHelperTests: XCTestCase {
             XCTFail()
             return
         }
-        
+
         iap.buyProduct(product) { notification in
             switch notification {
             case .purchaseSuccess(productId: let pid): XCTAssertNotNil(pid)
             case .purchaseFailure(productId:): XCTFail()
             default: break
             }
-            
+
             purchaseProductExpectation.fulfill()
         }
-        
+
         // Signal that we want to wait on one or more expectations for up to the specified timeout
         wait(for: [purchaseProductExpectation], timeout: 10.0)  // Wait up to 10 secs for the expectation to be fulfilled
     }
-    
+
     func testValidateReceipt() {
         XCTAssertTrue(iap.processReceipt())
     }

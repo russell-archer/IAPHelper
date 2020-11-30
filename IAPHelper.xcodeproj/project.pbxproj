@@ -854,7 +854,6 @@
 					};
 					6874E6862572D59A006CA636 = {
 						CreatedOnToolsVersion = 12.2;
-						TestTargetID = 684B21B12573CDDA00E635FC;
 					};
 					68B486D12571DA3F00770C1F = {
 						CreatedOnToolsVersion = 12.2;
@@ -1058,7 +1057,6 @@
 		6874E68F2572D59A006CA636 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = R6BE99W3FU;
 				INFOPLIST_FILE = IAPHelperTests/Info.plist;
@@ -1071,14 +1069,12 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/IAPHelperTestHost.app/IAPHelperTestHost";
 			};
 			name = Debug;
 		};
 		6874E6902572D59A006CA636 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = R6BE99W3FU;
 				INFOPLIST_FILE = IAPHelperTests/Info.plist;
@@ -1091,7 +1087,6 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/IAPHelperTestHost.app/IAPHelperTestHost";
 			};
 			name = Release;
 		};

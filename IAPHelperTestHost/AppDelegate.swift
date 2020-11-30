@@ -10,17 +10,9 @@ import UIKit
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
-//    public var iapHelper: IAPHelper!
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Make sure the IAPHelper is initialized early in the app's lifecycle to ensure we don't miss any App Store notifications
-//        iapHelper = IAPHelper.shared
         return true
-    }
-
-    func applicationWillTerminate(_ application: UIApplication) {
-//        iapHelper.removeFromPaymentQueue()
     }
 
     // MARK: UISceneSession Lifecycle
@@ -36,7 +28,5 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // If any sessions were discarded while the application was not running, this will be called shortly after application:didFinishLaunchingWithOptions.
         // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
     }
-
-
 }
 
