@@ -1098,7 +1098,7 @@ class IAPHelperTests: XCTestCase {
     // Create a test session that allows us to control StoreKit transactions
     // (e.g. disable the normal purchase confirmation dialogs, etc.)
     private var session: SKTestSession! = try? SKTestSession(
-                configurationFileNamed: IAPConstants.ConfigFile())
+        configurationFileNamed: IAPConstants.ConfigFile())
     
     func testConfiguration() {
         // If this is true then the StoreKit config file has been successfully 
@@ -1136,7 +1136,7 @@ Then select the **IAPHelperTests** target and in **Target > General > Testing** 
 The host app itself will run on either the simulator or real device.
 
 Copy **AppleRootCertificate.cer**, **StoreKitTestCertificate.cer** and **Configuration.storekit** from the **IAPHelper** framework and add them 
-to the **IAPHelperTestHost** project. Then add the IAPHelper framework to **IAPHelperTestHost**:
+to the **IAPHelperTestHost** project. Then add the **IAPHelper** framework to **IAPHelperTestHost**:
 
 ![](./readme-assets/img45.png)
 
