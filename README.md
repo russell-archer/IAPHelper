@@ -931,7 +931,303 @@ extension IAPReceipt {
     public func compareProductIds(fallbackPids: Set<ProductId>) -> Bool { fallbackPids == validatedPurchasedProductIdentifiers }
 }
 ```
+---
 
+# StoreKit Automated Testing
+## Overview
 
+We now have an Xcode project (**IAPDemo**) which contains app code, plus a discreet group of files that form a helper for supporting in-app purchases. 
+
+![](./readme-assets/img22.png)
+
+Our aim is to:
+
+- Create a separate **framework** project for **`IAPHelper`**
+    - Move the helper files into that project and then remove them from the **IAPDemo** project
+    - The framework should be useable by **IAPDemo** and sharable by others in the future
+- Combine the main **IAPDemo** project and the **`IAPHelper`** framework project in a single Xcode **Workspace** so we can easily work on, debug and test both projects
+- Add **Unit Tests** for **`IAPHelper`** to the framework
+
+## What is a Workspace?
+
+An Xcode workspace is a collection of projects:
+
+- Any project in the workspace has access to all the content from any other project in that same workspace, including compiled content
+- You can set up dependencies between projects so that a single build command builds all required pieces for the chosen target
+- You can include frameworks, modules, or static libraries, either your own or those of a third party
+- You can break up large projects into smaller pieces, allowing easier maintenance and sharing of functionality
+
+## Create the IAPHelper Framework
+
+Open the original **IAPDemo** project which contains the mixture of app code and **`IAPHelper`** code.
+
+Create new project of type **Framework** for **`IAPHelper`**:
+
+![](./readme-assets/img23.png)
+
+Name the project **IAPHelper**:
+
+![](./readme-assets/img24.png)
+
+Save the new framework project **outside the directory structure of IAPDemo project**:
+
+![](./readme-assets/img25.png)
+
+In the new **IAPHelper** framework project, create new group folders for **openssl-include** and **openssl-lib**:
+
+![](./readme-assets/img26.png)
+
+From **Finder** select all the header files in the **IAPDemo** project's **openssl-include** directory and drag them into the **openssl-include** group folder 
+in the new **`IAPHelper`** framework project. Make sure to check **"Copy items if needed"** and select **"Create folder references"**:
+
+![](./readme-assets/img27.png)
+
+From Finder select the two OpenSSL libraries in the **IAPDemo** project's **openssl-lib** directory and drag them into the **openssl-lib** group folder in the 
+new **`IAPHelper`** framework project.
+
+From Finder drag the remaining IAPHelper files from the **IAPDemo** project into the **IAPHelper** group folder in the new **`IAPHelper`** framework project.
+
+The new framework project should now look like this:
+
+![](./readme-assets/img28.png)
+
+Switch back to the **IAPDemo** app project, select the **IAPHelper** group folder and **delete** it. When prompted chose **Move to Trash** (you might want 
+back up the project files first, just in case of problems):
+
+![](./readme-assets/img29.png)
+
+Switch to the new **`IAPHelper`** framework project.
+
+Copy the contents of **IAPDemo-Bridging-Header.h** and paste it into **IAPHelper.h** (which was generated for us by Xcode).
+
+Delete **IAPDemo-Bridging-Header.h**.
+
+In **Build Settings** for the **IAPHelper** target set the **Header Search Paths** field to:
+
+```swift
+$(inherited) $(PROJECT_DIR)/IAPHelper/openssl-include
+```
+
+Check that **Library Search Paths** is set to:
+
+```swift
+$(inherited) $(PROJECT_DIR)/IAPHelper/openssl-lib
+```
+
+Select all the header files in the **openssl-include** group folder and make sure their **Target Membership** is set to **IAPHelper Public** (the default is **Project**):
+
+![](./readme-assets/img30.png)
+
+If you don't do this you'll get an error for every header file included in **IAPHelper.h** when you build the project:
+
+**`Include of non-modular header inside framework module`**
+
+The project should now build.
+
+## Combine the IAPDemo project and the IAPHelper framework in a W**orkspace**
+Close the **IAPHelper** framework project and switch back to the original **IAPDemo** project.
+
+To convert the project into a workspace select **File > Save As Workspace**. Normally you'll want to save the workspace file in the same root folder for 
+your original project.
+
+Add the **IAPHelper** framework project to the new workspace by selecting **File > Add Files to *Project Name***:
+
+![](./readme-assets/img31.png)
+
+You should see that **IAPHelper** has been added to the workspace:
+
+![](./readme-assets/img32.png)
+
+Select the app project (**IAPDemo** in this case) target **Build Settings** and remove the **Bridging Header**:
+
+![](./readme-assets/img33.png)
+
+You can now embed the **`IAPHelper`** framework in the **IAPDemo** app project:
+
+![](./readme-assets/img34.png)
+
+![](./readme-assets/img35.png)
+
+Build the workspace. You may need to adjust the access levels from (e.g. **`internal`** to **`public`**) for some elements in the IAPHelper framework.
+
+The app should now run.
+
+## Add Unit Tests for IAPHelper to the framework
+Close the **IAPDemo** workspace and then re-open the **IAPHelper** project. 
+
+Convert the **IAPHelper** project to a workspace with **File > Save As Workspace.**
+
+Save the workspace file in the root of the **IAPHelper** project folder:
+
+![](./readme-assets/img36.png)
+
+Select **File > New > Target**.
+
+Filter the templates by typing "test" and then select **Unit Testing Bundle**:
+
+![](./readme-assets/img37.png)
+
+Create the new target, which will be named ***project-name*Tests**.
+
+The new test target is added to your project:
+
+![](./readme-assets/img38.png)
+
+Open the unit test file (**IAPHelperTests.swift**) that Xcode just created.
+
+Add the following to define a first simple test case (notice how we **`@testable import`** the **`IAPHelper`** module):
+
+```swift
+import XCTest
+import StoreKitTest
+
+// Import the IAPHelper module.
+// This lets you write unit tests against *internal* properties and methods
+@testable import IAPHelper
+
+class IAPHelperTests: XCTestCase {
+    // Reference the IAPHelper singleton via the shared property
+    private var iap = IAPHelper.shared
+
+    // Create a test session that allows us to control StoreKit transactions
+    // (e.g. disable the normal purchase confirmation dialogs, etc.)
+    private var session: SKTestSession! = try? SKTestSession(
+                configurationFileNamed: IAPConstants.ConfigFile())
+    
+    func testConfiguration() {
+        // If this is true then the StoreKit config file has been successfully 
+        // read by IAPHelper
+        XCTAssertTrue(iap.haveConfiguredProductIdentifiers)
+    }
+}
+```
+
+Now build and run the test by clicking the button to the left of the class name (or hit **Cmd + U**):
+
+![](./readme-assets/img39.png)
+
+At this point you'll get an error if you try to run the tests on a real device:
+
+![](./readme-assets/img40.png)
+
+The issue here is Xcode doesn't support running tests on a **framework** directly on a real device. As we want to support both the simulator and real 
+devices we'll need to create a minimal test host app that simply embeds the **IAPHelper** framework - it doesn't need to even reference it in code.
+
+Add a new iOS app to the **IAPHelper** workspace with **File > New > Project**:
+
+![](./readme-assets/img41.png)
+
+![](./readme-assets/img42.png)
+
+Select to **add** the project to your **IAPHelper** workspace:
+
+![](./readme-assets/img43.png)
+
+Then select the **IAPHelperTests** target and in **Target > General > Testing** set the test host app as the **Host Application**:
+
+![](./readme-assets/img44.png)
+
+The host app itself will run on either the simulator or real device.
+
+Copy **AppleRootCertificate.cer**, **StoreKitTestCertificate.cer** and **Configuration.storekit** from the **IAPHelper** framework and add them 
+to the **IAPHelperTestHost** project. Then add the IAPHelper framework to **IAPHelperTestHost**:
+
+![](./readme-assets/img45.png)
+
+There's no need to add any code or reference **IAPHelper**.
+
+We should now be able to build and run the test by clicking the button to the left of the class name (or hit **Cmd + U**):
+
+![](./readme-assets/img46.png)
+
+We can now complete writing our tests in **IAPHelperTests**:
+
+```swift
+//
+//  IAPHelperTests.swift
+//  IAPHelperTests
+//
+//  Created by Russell Archer on 28/11/2020.
+//
+
+import XCTest
+import StoreKitTest
+
+// Import the IAPHelper module.
+// This lets you write unit tests against *internal* properties and methods
+@testable import IAPHelper
+
+class IAPHelperTests: XCTestCase {
+    private var iap = IAPHelper.shared
+    
+    // Create a test session that allows us to control StoreKit transactions
+    // (e.g. disable the normal purchase confirmation dialogs, etc.)
+    private var session: SKTestSession! = try? SKTestSession(
+        configurationFileNamed: IAPConstants.ConfigFile())
+    
+    func testConfiguration() {
+        // If this is true then the StoreKit config file has been successfully 
+        // read by IAPHelper
+        XCTAssertTrue(iap.haveConfiguredProductIdentifiers)
+    }
+    
+    func testGetProductInfo() {
+        // Create an expected outcome for an *asynchronous* test
+        let productInfoExpectation = XCTestExpectation()
+
+        iap.requestProductsFromAppStore { notification in
+
+            if notification == IAPNotification.requestProductsSuccess {
+                XCTAssertNotNil(self.iap.products)
+            } else if notification == IAPNotification.requestProductsFailure {
+                XCTFail()
+            }
+
+            productInfoExpectation.fulfill()
+        }
+
+        // Signal that we want to wait on one or more expectations for up 
+        // to the specified timeout
+        wait(for: [productInfoExpectation], timeout: 10.0)  
+    }
+
+    func testPurchaseProduct() {
+        let productId = "com.rarcher.flowers-large"
+        let purchaseProductExpectation = XCTestExpectation()
+        session.disableDialogs = true
+
+        guard let product = iap.getStoreProductFrom(id: productId) else {
+            XCTFail()
+            return
+        }
+
+        iap.buyProduct(product) { notification in
+            switch notification {
+            case .purchaseSuccess(productId: let pid): XCTAssertNotNil(pid)
+            case .purchaseFailure(productId:): XCTFail()
+            default: break
+            }
+
+            purchaseProductExpectation.fulfill()
+        }
+
+        wait(for: [purchaseProductExpectation], timeout: 10.0)  
+    }
+
+    func testValidateReceipt() {
+        XCTAssertTrue(iap.processReceipt())
+    }
+}
+```
+
+---
+
+# Future Enhancements
+
+Upcoming enhancements include:
+
+- IAPHelper support for subscriptions
+- A example of server-based (off device) receipt validation
+- Using a service like RevenueCate for receipt validation
 
 
