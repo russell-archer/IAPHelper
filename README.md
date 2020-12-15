@@ -613,9 +613,9 @@ Protocol: `SKPaymentTransactionObserver`
 
 # IAPDemo Example
 
-The [**IAPDemo**](https://github.com/russell-archer/IAPDemo) example provides a more complete, real-world treatment of handling in-app purchases. 
-It has a similar structure to the **HelloIAPWorld** example, however the scope of `IAPHelper` has been increased to cope with most non-subscription 
-in-app purchase scenarios. Support for subscriptions will be added shortly as an enhancement.
+The **IAPDemo** example provides a more complete, real-world treatment of handling in-app purchases. It has a similar structure to the **HelloIAPWorld** 
+example, however the scope of `IAPHelper` has been increased to cope with most non-subscription in-app purchase scenarios. Support for subscriptions 
+will be added shortly as an enhancement.
 
 The main things to note are:
 
@@ -648,15 +648,16 @@ public func processReceipt() {
 
 ## OpenSSL
 IAPHelper uses [OpenSSL](https://www.openssl.org) to validate the App Store receipt and read its contents. Building OpenSSL for iOS is not totally straightforward. 
-To make getting started easier, IAPDemo (todo: link) contains pre-built OpenSSL binaries that were built using version 1.1.1 of OpenSSL. 
+To make getting started easier, **IAPDemo** contains pre-built OpenSSL binaries that were built using version 1.1.1 of OpenSSL. 
 
 The OpenSSL binaries `libcrypto.a` and `libssl.a` need to work in the following environments:
 
 ![](./readme-assets/img20b.png)
 
 As you can see from the above table, everything works as anticipated, except in the case of building with Xcode on an M1 Mac for running on the simulator. 
-At the time of writing (a week after the first M1 Macs became available in November 2020) isn't totally clear. If we intend only to support recent devices on 
-iOS 13 and higher, in theory our OpenSSL binaries only need to support two architectures in a "fat" or Universal Binary: x86 64-bit and ARM 64-bit.
+At the time of writing (a week after the first M1 Macs became available in November 2020 [edit: this is still an issue in mid-December following the release of 
+iOS 14.3 and Xcode 12.3]) the situation isn't totally clear. If we intend only to support recent devices on iOS 13 and higher, in theory our OpenSSL binaries only need to 
+support two architectures in a "fat" or Universal Binary: x86 64-bit and ARM 64-bit.
 
 The included builds of the OpenSSL binaries contain the following architectures as shown by using the `lipo` utility:
 
@@ -687,7 +688,7 @@ It is possible to build for the simulator on an M1 Mac if you exclude the arm64 
 
 ![](./readme-assets/img21.png)
 
-However, when you run the app on the simulator there are issues. The most notably one is that the `Bundle.main.appStoreReceiptURL` property, which 
+However, when you run the app on the simulator there are issues. The most notable one is that the `Bundle.main.appStoreReceiptURL` property, which 
 points to the location of the App Store receipt, is always nil.
 
 Until a solution is found you will need to build and deploy IAPDemo to a real device if you use an M1-based Mac.
@@ -937,6 +938,7 @@ extension IAPReceipt {
     public func compareProductIds(fallbackPids: Set<ProductId>) -> Bool { fallbackPids == validatedPurchasedProductIdentifiers }
 }
 ```
+
 ---
 
 # StoreKit Automated Testing

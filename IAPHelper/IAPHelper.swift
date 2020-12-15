@@ -21,6 +21,9 @@ public class IAPHelper: NSObject  {
     /// Singleton access. Use IAPHelper.shared to access all IAPHelper properties and methods.
     public static let shared: IAPHelper = IAPHelper()
 
+    /// Delegates
+    public weak var productConfiguration: IAPProductConfiguration?
+    
     /// True if a purchase is in progress (excluding a deferred).
     public var isPurchasing = false
 
@@ -88,56 +91,12 @@ public class IAPHelper: NSObject  {
     }
 
     internal func setup() {
-        readConfigFile()
-        loadPurchasedProductIds()
-    }
 
-    internal func readConfigFile() {
-        // Read our configuration file that contains the list of ProductIds that are available on the App Store.
-        configuredProductIdentifiers = nil
-        var success = false
-        if IAPConstants.isRelease { success = readPropertyListFile() } else { success = readStoreKitFile() }
+        // Call either our default implementation or a custom implementation of product configuration
+        configuredProductIdentifiers = (productConfiguration ?? IAPProductConfigurationDefault()).readProductConfiguration()
         
-        let notification = success ? IAPNotification.configurationSuccess : IAPNotification.configurationFailure
-        IAPLog.event(notification)
-        notificationCompletion?(notification)
-    }
-    
-    internal func readStoreKitFile() -> Bool {
-        let result = IAPConfiguration.readStoreKitFile(filename: IAPConstants.ConfigFile(), ext: IAPConstants.ConfigFileExt())
-        switch result {
-        case .failure(_):
-            IAPLog.event(.configurationEmpty)
-            return false
-            
-        case .success(let configuration):
-            guard let configuredProducts = configuration.products, configuredProducts.count > 0 else {
-                IAPLog.event(.configurationEmpty)
-                return false
-            }
-            
-            configuredProductIdentifiers = Set<ProductId>(configuredProducts.compactMap { product in product.productID })
-            return true
-        }
-    }
-    
-    internal func readPropertyListFile() -> Bool {
-        guard let result = IAPConfiguration.readPropertyFile(filename: IAPConstants.ConfigFile()) else {
-            return false
-        }
-        
-        guard result.count > 0 else {
-            IAPLog.event(.configurationEmpty)
-            return false
-        }
-        
-        guard let values = result["Products"] as? [String] else {
-            IAPLog.event(.configurationEmpty)
-            return false
-        }
-        
-        configuredProductIdentifiers = Set<ProductId>(values.compactMap { $0 })
-        return true
+        // Load fallback purchased ProductIds from UserDefaults
+        loadPurchasedProductIds()
     }
 
     internal func loadPurchasedProductIds() {

@@ -41,7 +41,7 @@
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES">
       <StoreKitConfigurationFileReference
-         identifier = "../IAPDemo/Support/Configuration.storekit">
+         identifier = "../../IAPHelper/IAPHelperTestHost/TestHostConfig.storekit">
       </StoreKitConfigurationFileReference>
    </LaunchAction>
    <ProfileAction

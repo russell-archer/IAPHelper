@@ -15,6 +15,7 @@ FOUNDATION_EXPORT const unsigned char IAPHelperVersionString[];
 
 // In this header, you should import all the public headers of your framework using statements like #import <IAPHelper/PublicHeader.h>
 
+//#import "Foundation/Foundation.h"
 #import "aes.h"
 #import "asn1.h"
 #import "asn1_locl.h"
