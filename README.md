@@ -6,6 +6,10 @@ However, you do so entirely at your own risk.
 
 ## See **IAPDemo** on [GitHub](https://github.com/russell-archer/IAPDemo) for an example of how to use `IAPHelper`.
 
+## Updated 31st December 2020
+Added notes on [Support for Strong Customer Authentication transactions in the European Economic Area](#Support-for-Strong-Customer-Authentication-transactions-in-the-European-Economic-Area) 
+with reference to new a [Apple Support Document](https://developer.apple.com/support/psd2/). 
+
 ---
 
 # In-App Purchases with Xcode 12 and iOS 14
@@ -1227,6 +1231,49 @@ class IAPHelperTests: XCTestCase {
     }
 }
 ```
+
+---
+
+# Support for Strong Customer Authentication transactions in the European Economic Area
+Starting December 31, 2020, legislation from the European Union introduces **Strong Customer Authentication (SCA)** requirements.
+An  [Apple Support Document](https://developer.apple.com/support/psd2/) provides details.
+
+As the Apple support document notes:
+
+> For in-app purchases that require SCA, the user is prompted to authenticate their credit or debit card. They’re taken out of the purchase flow 
+> to the bank or payment service provider’s website or app for authentication, then redirected to the App Store where they’ll see a message letting 
+> them know that their purchase is complete. Handling this interrupted transaction is similar to Ask to Buy purchases that need approval from a 
+> family approver or when users need to agree to updated App Store terms and conditions before completing a purchase.
+
+IAPHelper already provides support for handling SCA through its support of deferred purchases ("ask to buy"):
+
+``` swift
+public func paymentQueue(_ queue: SKPaymentQueue, updatedTransactions transactions: [SKPaymentTransaction]) {
+    for transaction in transactions {
+        switch (transaction.transactionState) {
+        case .purchasing:   purchaseInProgress(transaction: transaction)
+        case .purchased:    purchaseCompleted(transaction: transaction)
+        case .failed:       purchaseFailed(transaction: transaction)
+        case .restored:     purchaseCompleted(transaction: transaction, restore: true)
+        case .deferred:     purchaseDeferred(transaction: transaction)
+        default:            return
+        }
+    }
+}
+
+private func purchaseDeferred(transaction: SKPaymentTransaction) {
+    isPurchasing = false
+    IAPLog.event(.purchaseDeferred(productId: transaction.payment.productIdentifier))
+    DispatchQueue.main.async { self.purchaseCompletion?(.purchaseDeferred(productId: transaction.payment.productIdentifier)) }
+
+    // Do NOT call SKPaymentQueue.default().finishTransaction() for .deferred status
+}
+```
+
+
+So, initially when the user attempts to purchase a product that requires SCA or ask-to-buy, a transaction with a state of `deferred`
+is generated. Then, when the user authenticates (or when a parent authorizes an ask-to-buy purchase) another transaction with a state of
+`purchased` is generated.
 
 ---
 
