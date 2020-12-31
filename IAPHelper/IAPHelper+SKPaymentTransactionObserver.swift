@@ -107,6 +107,25 @@ extension IAPHelper: SKPaymentTransactionObserver {
         // that in-app purchases require authorization from a parent. Do not allow access to the product at this point
         // Apple recommeds that there be no spinners or blocking while in this state as it could be hours or days
         // before the purchase is approved or declined.
+        //
+        // Starting December 31, 2020, legislation from the European Union introduces Strong Customer Authentication
+        // (SCA) requirements for users in the European Economic Area (EEA) that may impact how they complete online
+        // purchases. While the App Store and Apple Pay will support Strong Customer Authentication, you’ll need to verify
+        // your app’s implementation of StoreKit and Apple Pay to ensure purchases are handled correctly.
+        //
+        // For in-app purchases that require SCA, the user is prompted to authenticate their credit or debit card.
+        // They’re taken out of the purchase flow to the bank or payment service provider’s website or app for authentication,
+        // then redirected to the App Store where they’ll see a message letting them know that their purchase is complete.
+        // Handling this interrupted transaction is similar to Ask to Buy purchases that need approval from a family approver
+        // or when users need to agree to updated App Store terms and conditions before completing a purchase.
+        //
+        // Make sure your app can properly handle interrupted transactions by initializing a transaction observer to respond
+        // to new transactions and synchronize pending transactions with Apple. This observer helps your app handle SCA
+        // transactions, which can update your payment queue with a state of “failed” or “deferred” as the user exits the app.
+        // When the user is redirected to the App Store after authentication, a new transaction with a state of “purchased”
+        // is immediately delivered to the observer and may include a new value for the transactionIdentifier property.
+        //
+        // Ref: https://developer.apple.com/support/psd2/
 
         isPurchasing = false
         IAPLog.event(.purchaseDeferred(productId: transaction.payment.productIdentifier))
